@@ -1,0 +1,12 @@
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\obj\Debug\net6.0\BrainGym.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\obj\Debug\net6.0\BrainGym.Application.AssemblyInfoInputs.cache
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\obj\Debug\net6.0\BrainGym.Application.AssemblyInfo.cs
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\obj\Debug\net6.0\BrainGym.Application.csproj.CoreCompileInputs.cache
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\bin\Debug\net6.0\BrainGym.Application.deps.json
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\bin\Debug\net6.0\BrainGym.Application.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\bin\Debug\net6.0\BrainGym.Application.pdb
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\obj\Debug\net6.0\BrainGym.Application.csproj.AssemblyReference.cache
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\obj\Debug\net6.0\BrainGym.Application.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\obj\Debug\net6.0\refint\BrainGym.Application.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\obj\Debug\net6.0\BrainGym.Application.pdb
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\obj\Debug\net6.0\ref\BrainGym.Application.dll
