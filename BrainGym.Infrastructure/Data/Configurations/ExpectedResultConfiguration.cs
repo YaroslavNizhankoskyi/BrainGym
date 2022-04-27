@@ -15,12 +15,12 @@ namespace BrainGym.Infrastructure.Data.Configurations
                 .WithMany(x => x.ExpectedResults)
                 .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
+            builder.HasOne(x => x.Recommendation)
+                .WithMany(x => x.ExpectedResults)
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
+
             builder.Property(x => x.Value)
                 .IsRequired();
-
-            builder.Property(x => x.Recommendation)
-                .HasMaxLength(256)
-                .IsRequired(); ;
 
             base.Configure(builder);
         }

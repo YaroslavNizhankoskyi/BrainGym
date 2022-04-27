@@ -6,18 +6,18 @@ using System.Text;
 
 namespace BrainGym.Infrastructure.Data.Configurations
 {
-    internal class FactorRecommendationConfiguration : EntityConfiguration<FactorRecommendation>
+    internal class FactorRecommendationConfiguration : EntityConfiguration<Factor>
     {
-        public override void Configure(EntityTypeBuilder<FactorRecommendation> builder)
+        public override void Configure(EntityTypeBuilder<Factor> builder)
         {
             builder.HasOne(x => x.Exercise)
                 .WithMany(x => x.FactorRecommendations)
                 .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
-            builder.Property(x => x.Recommendation)
-                .HasMaxLength(256)
-                .IsRequired();
-                
+            builder.HasOne(x => x.Recommendation)
+                .WithMany(x => x.Factors)
+                .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
+               
 
             base.Configure(builder);
         }

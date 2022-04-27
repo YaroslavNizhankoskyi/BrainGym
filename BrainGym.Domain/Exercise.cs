@@ -17,7 +17,7 @@ namespace BrainGym.Domain
 
         public string GameData { get; set; }
 
-        public ICollection<FactorRecommendation> FactorRecommendations { get; set; }
+        public ICollection<Factor> FactorRecommendations { get; set; }
 
         public ICollection<ExpectedResult> ExpectedResults { get; set; }
 

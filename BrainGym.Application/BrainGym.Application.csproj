@@ -7,13 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="10.0.1" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <Compile Remove="Calls\**" />
+    <Compile Remove="Common\**" />
+    <EmbeddedResource Remove="Calls\**" />
+    <EmbeddedResource Remove="Common\**" />
+    <None Remove="Calls\**" />
+    <None Remove="Common\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Calls\" />
-    <Folder Include="Common\" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
   </ItemGroup>
 
 </Project>
