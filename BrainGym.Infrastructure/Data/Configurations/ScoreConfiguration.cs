@@ -21,13 +21,13 @@ namespace BrainGym.Infrastructure.Data.Configurations
             builder.Property(x => x.GameScore)
                 .IsRequired();
 
-            builder.Property(x => x.HealthFactor)
+            builder.Property(x => x.HealthRate)
                 .IsRequired();
 
-            builder.Property(x => x.SleepFactor)
+            builder.Property(x => x.SleepRate)
                 .IsRequired();
 
-            builder.Property(x => x.MentalFactor)
+            builder.Property(x => x.MentalRate)
                 .IsRequired();
 
             base.Configure(builder);

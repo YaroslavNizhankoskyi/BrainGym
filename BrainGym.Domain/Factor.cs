@@ -5,15 +5,19 @@ using System.Text;
 
 namespace BrainGym.Domain
 {
-    public class FactorRecommendation : Entity
+    public class Factor : Entity
     {
         public FactorType FactorType { get; set; }
 
-        public string Recommendation { get; set; }
+        public Guid RecommendationId { get; set; }
 
         public Guid ExerciseId { get; set; }
 
+        public double Coefficient { get; set; }
+
         public Exercise Exercise { get; set; }
+
+        public Recommendation Recommendation { get; set; }
     }
 
     public enum FactorType

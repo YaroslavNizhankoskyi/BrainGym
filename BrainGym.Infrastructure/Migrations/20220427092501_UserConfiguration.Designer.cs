@@ -4,6 +4,7 @@ using BrainGym.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BrainGym.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220427092501_UserConfiguration")]
+    partial class UserConfiguration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,8 +72,10 @@ namespace BrainGym.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("RecommendationId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Recommendation")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<double>("Value")
                         .HasColumnType("float");
@@ -80,20 +84,15 @@ namespace BrainGym.Infrastructure.Migrations
 
                     b.HasIndex("ExerciseId");
 
-                    b.HasIndex("RecommendationId");
-
                     b.ToTable("ExpectedResults");
                 });
 
-            modelBuilder.Entity("BrainGym.Domain.Factor", b =>
+            modelBuilder.Entity("BrainGym.Domain.FactorRecommendation", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("NEWID()");
-
-                    b.Property<double>("Coefficient")
-                        .HasColumnType("float");
 
                     b.Property<Guid>("ExerciseId")
                         .HasColumnType("uniqueidentifier");
@@ -104,36 +103,16 @@ namespace BrainGym.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("RecommendationId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ExerciseId");
-
-                    b.HasIndex("RecommendationId");
-
-                    b.ToTable("FactorRecommendations");
-                });
-
-            modelBuilder.Entity("BrainGym.Domain.Recommendation", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Text")
+                    b.Property<string>("Recommendation")
                         .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Recommendation");
+                    b.HasIndex("ExerciseId");
+
+                    b.ToTable("FactorRecommendations");
                 });
 
             modelBuilder.Entity("BrainGym.Domain.Score", b =>
@@ -149,16 +128,16 @@ namespace BrainGym.Infrastructure.Migrations
                     b.Property<double>("GameScore")
                         .HasColumnType("float");
 
-                    b.Property<int>("HealthRate")
+                    b.Property<int>("HealthFactor")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("MentalRate")
+                    b.Property<int>("MentalFactor")
                         .HasColumnType("int");
 
-                    b.Property<int>("SleepRate")
+                    b.Property<int>("SleepFactor")
                         .HasColumnType("int");
 
                     b.Property<Guid>("UserId")
@@ -409,18 +388,10 @@ namespace BrainGym.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("BrainGym.Domain.Recommendation", "Recommendation")
-                        .WithMany("ExpectedResults")
-                        .HasForeignKey("RecommendationId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.Navigation("Exercise");
-
-                    b.Navigation("Recommendation");
                 });
 
-            modelBuilder.Entity("BrainGym.Domain.Factor", b =>
+            modelBuilder.Entity("BrainGym.Domain.FactorRecommendation", b =>
                 {
                     b.HasOne("BrainGym.Domain.Exercise", "Exercise")
                         .WithMany("FactorRecommendations")
@@ -428,15 +399,7 @@ namespace BrainGym.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("BrainGym.Domain.Recommendation", "Recommendation")
-                        .WithMany("Factors")
-                        .HasForeignKey("RecommendationId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.Navigation("Exercise");
-
-                    b.Navigation("Recommendation");
                 });
 
             modelBuilder.Entity("BrainGym.Domain.Score", b =>
@@ -516,13 +479,6 @@ namespace BrainGym.Infrastructure.Migrations
                     b.Navigation("FactorRecommendations");
 
                     b.Navigation("Scores");
-                });
-
-            modelBuilder.Entity("BrainGym.Domain.Recommendation", b =>
-                {
-                    b.Navigation("ExpectedResults");
-
-                    b.Navigation("Factors");
                 });
 
             modelBuilder.Entity("BrainGym.Domain.User", b =>

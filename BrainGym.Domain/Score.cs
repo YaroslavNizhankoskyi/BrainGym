@@ -10,9 +10,9 @@ namespace BrainGym.Domain
         public Guid ExerciseId { get; set; } 
         public Guid UserId { get; set; }
         public double GameScore { get; set; }
-        public int MentalFactor { get; set; }
-        public int SleepFactor { get; set; }
-        public int HealthFactor { get; set; }
+        public int MentalRate { get; set; }
+        public int SleepRate { get; set; }
+        public int HealthRate { get; set; }
         public Exercise Exercise { get; set; }
         public User User { get; set; }
     }

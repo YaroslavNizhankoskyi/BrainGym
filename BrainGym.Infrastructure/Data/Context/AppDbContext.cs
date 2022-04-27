@@ -19,7 +19,7 @@ namespace BrainGym.Infrastructure.Data.Context
 
         public DbSet<ExpectedResult> ExpectedResults { get; set; }
 
-        public DbSet<FactorRecommendation> FactorRecommendations { get; set; }
+        public DbSet<Factor> FactorRecommendations { get; set; }
 
         public DbSet<Exercise> Exercises { get; set; }
 
