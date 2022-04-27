@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BrainGym.Application\BrainGym.Application.csproj" />
     <ProjectReference Include="..\BrainGym.Domain\BrainGym.Domain.csproj" />
   </ItemGroup>
 

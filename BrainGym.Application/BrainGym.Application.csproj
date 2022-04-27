@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -9,11 +9,12 @@
   <ItemGroup>
     <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Calls\" />
-    <Folder Include="Common\" />
+    <Folder Include="Calls\Auth\Commands\Login\" />
+    <Folder Include="Calls\Auth\Validation\" />
   </ItemGroup>
 
 </Project>
