@@ -1,4 +1,6 @@
-﻿using MediatR;
+﻿using BrainGym.Application.Common.Pipeline;
+using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,6 +16,8 @@ namespace BrainGym.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+            services.AddValidatorsFromAssembly(typeof(ServiceCollectionExtension).Assembly);
 
             return services;
         }
