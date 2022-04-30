@@ -1,4 +1,5 @@
-﻿using BrainGym.Application.Common.Interfaces;
+﻿using BrainGym.Application.Common.Constants;
+using BrainGym.Application.Common.Interfaces;
 using BrainGym.Application.Common.Models;
 using BrainGym.Domain;
 using MediatR;
@@ -42,6 +43,8 @@ namespace BrainGym.Application.Calls.Auth.Commands.Register
             {
                 return registerResult;
             }
+
+            var role = request.Role == null ? RoleConstants.DefaultRole : request.Role;
 
             var addToRoleResult = await _authService.AddToRoleAsync(registerResult.Result, request.Role);
 

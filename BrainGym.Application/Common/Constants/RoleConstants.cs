@@ -10,6 +10,7 @@ namespace BrainGym.Application.Common.Constants
     {
         public const string Administrator = "Admin";
         public const string User = "User";
+        public const string DefaultRole = "User";
     }
 
     public class RolePolicy

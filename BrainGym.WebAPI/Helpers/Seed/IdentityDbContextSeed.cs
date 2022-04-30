@@ -1,4 +1,5 @@
-﻿using BrainGym.Domain;
+﻿using BrainGym.Application.Common.Constants;
+using BrainGym.Domain;
 using BrainGym.Infrastructure.Data.Context;
 using BrainGym.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Identity;
@@ -32,10 +33,10 @@ namespace BrainGym.WebAPI.Helpers.Seed
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
                 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
 
-                if (!await roleManager.RoleExistsAsync("Administrator"))
-                    await roleManager.CreateAsync(new IdentityRole { Name = "Administrator" });
-                if (!await roleManager.RoleExistsAsync("User"))
-                    await roleManager.CreateAsync(new IdentityRole { Name = "User" });
+                if (!await roleManager.RoleExistsAsync(RoleConstants.Administrator))
+                    await roleManager.CreateAsync(new IdentityRole { Name = RoleConstants.Administrator });
+                if (!await roleManager.RoleExistsAsync(RoleConstants.User))
+                    await roleManager.CreateAsync(new IdentityRole { Name = RoleConstants.User });
 
                 await userManager.CreateAsync(appUser, Password);
 
