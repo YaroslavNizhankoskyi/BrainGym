@@ -15,3 +15,5 @@ C:\Users\dasap\source\repos\BrainGym\BrainGym.Infrastructure\obj\Debug\net6.0\re
 C:\Users\dasap\source\repos\BrainGym\BrainGym.Infrastructure\obj\Debug\net6.0\BrainGym.Infrastructure.pdb
 C:\Users\dasap\source\repos\BrainGym\BrainGym.Infrastructure\obj\Debug\net6.0\BrainGym.Infrastructure.genruntimeconfig.cache
 C:\Users\dasap\source\repos\BrainGym\BrainGym.Infrastructure\obj\Debug\net6.0\ref\BrainGym.Infrastructure.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Infrastructure\bin\Debug\net6.0\BrainGym.Application.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Infrastructure\bin\Debug\net6.0\BrainGym.Application.pdb

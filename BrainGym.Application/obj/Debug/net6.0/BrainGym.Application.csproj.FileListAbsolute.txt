@@ -10,3 +10,6 @@ C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\obj\Debug\net6.0\Brain
 C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\obj\Debug\net6.0\refint\BrainGym.Application.dll
 C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\obj\Debug\net6.0\BrainGym.Application.pdb
 C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\obj\Debug\net6.0\ref\BrainGym.Application.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\bin\Debug\net6.0\BrainGym.Domain.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\bin\Debug\net6.0\BrainGym.Domain.pdb
+C:\Users\dasap\source\repos\BrainGym\BrainGym.Application\obj\Debug\net6.0\BrainGym.Application.csproj.CopyComplete

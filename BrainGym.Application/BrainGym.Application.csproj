@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,17 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Calls\**" />
-    <Compile Remove="Common\**" />
-    <EmbeddedResource Remove="Calls\**" />
-    <EmbeddedResource Remove="Common\**" />
-    <None Remove="Calls\**" />
-    <None Remove="Common\**" />
+    <Compile Remove="Calls\Auth\Validation\**" />
+    <EmbeddedResource Remove="Calls\Auth\Validation\**" />
+    <None Remove="Calls\Auth\Validation\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="6.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BrainGym.Domain\BrainGym.Domain.csproj" />
   </ItemGroup>
 
 </Project>
