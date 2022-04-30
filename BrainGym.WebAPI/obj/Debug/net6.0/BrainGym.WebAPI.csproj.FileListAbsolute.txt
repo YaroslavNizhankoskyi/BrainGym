@@ -78,3 +78,5 @@ C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\obj\Debug\net6.0\ref\BrainG
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\BrainGym.Application.dll
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\BrainGym.Application.pdb
+C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll

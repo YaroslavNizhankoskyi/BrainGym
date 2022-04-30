@@ -2,6 +2,7 @@ using BrainGym.Application;
 using BrainGym.Infrastructure;
 using BrainGym.WebAPI.Helpers;
 using BrainGym.WebAPI.Helpers.Seed;
+using BrainGym.WebAPI.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,6 +16,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddTransient<ExceptionHandlingMiddleware>();
+
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 
@@ -24,6 +27,8 @@ builder.Services.AddAppAuthorization();
 var app = builder.Build();
 
 await app.MigrateDb();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
