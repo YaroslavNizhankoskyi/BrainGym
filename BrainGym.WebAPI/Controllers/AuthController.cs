@@ -1,4 +1,5 @@
-﻿using BrainGym.Application.Calls.Auth.Commands.Register;
+﻿using BrainGym.Application.Calls.Auth.Commands.Login;
+using BrainGym.Application.Calls.Auth.Commands.Register;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,6 +27,19 @@ namespace BrainGym.WebAPI.Controllers
             }
 
             return BadRequest(registerResult.ErrorList);
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginCommand loginCommand)
+        {
+            var loginResult = await _mediator.Send(loginCommand);
+
+            if (loginResult.Secceeded)
+            {
+                return Ok(loginResult.Result);
+            }
+
+            return BadRequest(loginResult.ErrorList);
         }
     }
 }
