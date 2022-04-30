@@ -27,7 +27,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\dasap\\source\\repos\\BrainGym\\BrainGym.Domain\\BrainGym.Domain.csproj": {
+                "projectPath": "C:\\Users\\dasap\\source\\repos\\BrainGym\\BrainGym.Domain\\BrainGym.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

@@ -17,7 +17,7 @@ namespace BrainGym.Infrastructure.Data.Configurations
                 .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.NoAction);
 
             builder.Property(x => x.UserId)
-                .HasMaxLength(32);
+                .HasMaxLength(36);
 
             builder.Property(x => x.FirstName)
                 .HasMaxLength(64);

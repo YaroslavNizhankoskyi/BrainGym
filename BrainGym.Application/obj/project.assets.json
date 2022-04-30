@@ -181,6 +181,16 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "BrainGym.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/BrainGym.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BrainGym.Domain.dll": {}
+        }
       }
     }
   },
@@ -503,10 +513,16 @@
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "BrainGym.Domain/1.0.0": {
+      "type": "project",
+      "path": "../BrainGym.Domain/BrainGym.Domain.csproj",
+      "msbuildProject": "../BrainGym.Domain/BrainGym.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "BrainGym.Domain >= 1.0.0",
       "MediatR >= 10.0.1",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 10.0.1",
       "Microsoft.Extensions.Identity.Core >= 6.0.4"
@@ -538,7 +554,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\dasap\\source\\repos\\BrainGym\\BrainGym.Domain\\BrainGym.Domain.csproj": {
+              "projectPath": "C:\\Users\\dasap\\source\\repos\\BrainGym\\BrainGym.Domain\\BrainGym.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
