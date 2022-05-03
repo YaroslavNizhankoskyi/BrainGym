@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BrainGym.Application.Calls.Exercises.Commands.Delete
 {
-    public class DeleteExerciseCommandVelidation : AbstractValidator<DeleteExerciseCommand>
+    public class DeleteExerciseCommandValidation : AbstractValidator<DeleteExerciseCommand>
     {
-        public DeleteExerciseCommandVelidation()
+        public DeleteExerciseCommandValidation()
         {
             RuleFor(x => x.Id)
                 .NotEmpty()
