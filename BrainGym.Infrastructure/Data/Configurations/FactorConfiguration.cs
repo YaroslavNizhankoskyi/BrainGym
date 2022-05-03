@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BrainGym.Infrastructure.Data.Configurations
 {
-    internal class FactorRecommendationConfiguration : EntityConfiguration<Factor>
+    internal class FactorConfiguration : EntityConfiguration<Factor>
     {
         public override void Configure(EntityTypeBuilder<Factor> builder)
         {
