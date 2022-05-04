@@ -15,6 +15,7 @@ namespace BrainGym.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
+            services.AddAutoMapper(x => x.AddMaps(Assembly.GetExecutingAssembly()));
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             services.AddValidatorsFromAssembly(typeof(ServiceCollectionExtension).Assembly);

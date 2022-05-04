@@ -1,4 +1,5 @@
-﻿using BrainGym.Application.Common.Interfaces;
+﻿using AutoMapper;
+using BrainGym.Application.Common.Interfaces;
 using BrainGym.Domain;
 using MediatR;
 using System;
@@ -9,23 +10,25 @@ using System.Threading.Tasks;
 
 namespace BrainGym.Application.Calls.Scores.Queries.GetAll
 {
-    public class GetAllScoresQuery : IRequest<IEnumerable<Score>>
+    public class GetAllScoresQuery : IRequest<IQueryable<ScoreDto>>
     {
 
     }
 
-    public class GetAllScoresQueryHandler : IRequestHandler<GetAllScoresQuery, IEnumerable<Score>>
+    public class GetAllScoresQueryHandler : IRequestHandler<GetAllScoresQuery, IQueryable<ScoreDto>>
     {
         private readonly IUnitOfWork _uow;
+        private readonly IMapper _mapper;
 
-        public GetAllScoresRequestHandler(IUnitOfWork uow)
+        public GetAllScoresQueryHandler(IUnitOfWork uow, IMapper mapper)
         {
             this._uow = uow;
+            this._mapper = mapper;
         }
 
-        public async Task<IEnumerable<Score>> Handle(GetAllScoresQuery request, CancellationToken cancellationToken)
+        public async Task<IQueryable<ScoreDto>> Handle(GetAllScoresQuery request, CancellationToken cancellationToken)
         {
-            return _uow.Scores.GetAll().ToList();
+            return _uow.Scores.ProjectTo<ScoreDto>(_mapper.ConfigurationProvider);
         }
     }
 }

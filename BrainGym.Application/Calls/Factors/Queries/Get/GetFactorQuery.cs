@@ -1,4 +1,5 @@
-﻿using BrainGym.Application.Common.Constants;
+﻿using AutoMapper;
+using BrainGym.Application.Common.Constants;
 using BrainGym.Application.Common.Exceptions;
 using BrainGym.Application.Common.Interfaces;
 using BrainGym.Domain;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BrainGym.Application.Calls.Factors.Queries.Get
 {
-    public  class GetFactorQuery : IRequest<Factor>
+    public  class GetFactorQuery : IRequest<FactorDto>
     {
         public GetFactorQuery(Guid id)
         {
@@ -20,21 +21,25 @@ namespace BrainGym.Application.Calls.Factors.Queries.Get
         public Guid Id { get; set; }
     }
 
-    public class GetFactorQueryHandler : IRequestHandler<GetFactorQuery, Factor>
+    public class GetFactorQueryHandler : IRequestHandler<GetFactorQuery, FactorDto>
     {
         private readonly IUnitOfWork _uow;
+        private readonly IMapper _mapper;
 
-        public GetFactorQueryHandler(IUnitOfWork uow)
+        public GetFactorQueryHandler(IUnitOfWork uow, IMapper mapper)
         {
             this._uow = uow;
+            this._mapper = mapper;
         }
-        public async Task<Factor> Handle(GetFactorQuery request, CancellationToken cancellationToken)
+        public async Task<FactorDto> Handle(GetFactorQuery request, CancellationToken cancellationToken)
         {
             var factor = await _uow.Factors.GetById(request.Id);
 
             if (factor == null) throw new NotFoundException(FactorsConstants.FactorNotFound);
 
-            return factor;
+            var factorDto = _mapper.Map<FactorDto>(factor);
+            
+            return factorDto;
         }
     }
 }

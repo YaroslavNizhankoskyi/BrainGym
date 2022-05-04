@@ -1,4 +1,5 @@
-﻿using BrainGym.Application.Common.Exceptions;
+﻿using BrainGym.Application.Common.Constants;
+using BrainGym.Application.Common.Exceptions;
 using BrainGym.Application.Common.Interfaces;
 using BrainGym.Domain;
 using MediatR;
@@ -37,7 +38,7 @@ namespace BrainGym.Application.Calls.Exercises.Commands.Put
         {
             var exercise = await _uow.Exercises.GetById(request.Id);
 
-            if (exercise == null) throw new NotFoundException();
+            if (exercise == null) throw new NotFoundException(ExercisesConstants.ExerciseNotFound);
 
             exercise.Name = request.Name;
             exercise.Description = request.Description;
