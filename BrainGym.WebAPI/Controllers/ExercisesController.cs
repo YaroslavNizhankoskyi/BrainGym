@@ -2,6 +2,8 @@
 using BrainGym.Application.Calls.Exercises.Commands.Post;
 using BrainGym.Application.Calls.Exercises.Queries.Get;
 using BrainGym.Application.Calls.Exercises.Queries.GetAll;
+using BrainGym.Domain;
+using LightQuery;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +20,8 @@ namespace BrainGym.WebAPI.Controllers
             this._mediator = mediator;
         }
 
+        [LightQuery(forcePagination: true, defaultPageSize: 3, defaultSort: "ExerciseType asc")]
+        [ProducesResponseType(typeof(IEnumerable<Exercise>), 200)]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

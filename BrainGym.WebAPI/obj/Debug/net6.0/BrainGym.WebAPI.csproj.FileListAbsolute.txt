@@ -80,3 +80,8 @@ C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\BrainGym.A
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\BrainGym.Application.pdb
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\LightQuery.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\LightQuery.Client.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\LightQuery.Shared.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\System.Reactive.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\System.Reactive.xml

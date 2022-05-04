@@ -18,7 +18,7 @@ namespace BrainGym.Application.Calls.Scores.Queries.GetAll
     {
         private readonly IUnitOfWork _uow;
 
-        public GetAllScoresRequestHandler(IUnitOfWork uow)
+        public GetAllScoresQueryHandler(IUnitOfWork uow)
         {
             this._uow = uow;
         }

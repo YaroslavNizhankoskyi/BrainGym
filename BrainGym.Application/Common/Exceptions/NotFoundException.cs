@@ -12,5 +12,7 @@ namespace BrainGym.Application.Common.Exceptions
         {
 
         }
+
+        
     }
 }
