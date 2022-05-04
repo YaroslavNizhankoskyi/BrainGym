@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -25,5 +26,7 @@ namespace BrainGym.Application.Common.Interfaces
         void Remove(TEntity entity);
 
         void RemoveRange(IQueryable<TEntity> entities);
+
+        IQueryable<TResult> ProjectTo<TResult>(IConfigurationProvider provider);
     }
 }

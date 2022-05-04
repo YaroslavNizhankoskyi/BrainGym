@@ -1,4 +1,6 @@
-﻿using BrainGym.Application.Common.Interfaces;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using BrainGym.Application.Common.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -86,6 +88,12 @@ namespace BrainGym.Infrastructure.Data.Models
         {
             context.Set<TEntity>().RemoveRange(entities);
         }
+
+        public IQueryable<TResult> ProjectTo<TResult>(IConfigurationProvider provider)
+        {
+            return GetAll().ProjectTo<TResult>(provider);
+        }
+
     }
 
 }

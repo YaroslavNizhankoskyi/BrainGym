@@ -32,10 +32,7 @@ namespace BrainGym.Application.Calls.Exercises.Commands.Delete
         {
             var exercise = await _uow.Exercises.GetById(request.Id);
 
-            if(exercise == null)
-            {
-                throw new NotFoundException(ExercisesConstants.ExerciseNotFound);
-            }
+            if (exercise == null) new NotFoundException(ExercisesConstants.ExerciseNotFound);
 
             _uow.Exercises.Remove(exercise);
 

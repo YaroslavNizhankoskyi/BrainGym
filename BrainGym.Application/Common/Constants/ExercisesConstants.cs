@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace BrainGym.Application.Common.Constants
 {
-    public  class ExercisesConstants
+    public class ExercisesConstants
     {
-        public const string ExerciseNotFound = "Exercise not found";
     }
 }
