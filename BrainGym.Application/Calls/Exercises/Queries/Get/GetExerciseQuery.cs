@@ -1,4 +1,6 @@
-﻿using BrainGym.Application.Common.Exceptions;
+﻿using AutoMapper;
+using BrainGym.Application.Common.Constants;
+using BrainGym.Application.Common.Exceptions;
 using BrainGym.Application.Common.Interfaces;
 using MediatR;
 using System;
@@ -21,26 +23,21 @@ namespace BrainGym.Application.Calls.Exercises.Queries.Get
     public class GetExerciseQueryHandler : IRequestHandler<GetExerciseQuery, ExerciseDto>
     {
         private readonly IUnitOfWork _uow;
+        private readonly IMapper _mapper;
 
-        public GetExerciseQueryHandler(IUnitOfWork uow)
+        public GetExerciseQueryHandler(IUnitOfWork uow, IMapper mapper)
         {
             this._uow = uow;
+            this._mapper = mapper;
         }
 
         public async Task<ExerciseDto> Handle(GetExerciseQuery request, CancellationToken cancellationToken)
         {
             var exercise = await _uow.Exercises.GetById(request.Id);
 
-            if (exercise == null) throw new NotFoundException();
+            if (exercise == null) throw new NotFoundException(ExercisesConstants.ExerciseNotFound);
 
-            return new ExerciseDto
-            {
-                Name = exercise.Name,
-                Description = exercise.Description,
-                GameData = exercise.GameData,
-                ExerciseMode = exercise.ExerciseMode,
-                ExerciseType = exercise.ExerciseType
-            };
+            return _mapper.Map<ExerciseDto>(exercise);
         }
     }
 }

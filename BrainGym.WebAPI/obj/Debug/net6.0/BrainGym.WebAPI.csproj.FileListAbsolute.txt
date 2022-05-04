@@ -80,3 +80,4 @@ C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\BrainGym.A
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\BrainGym.Application.pdb
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

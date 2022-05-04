@@ -1,4 +1,5 @@
-﻿using BrainGym.Application.Common.Interfaces;
+﻿using AutoMapper;
+using BrainGym.Application.Common.Interfaces;
 using BrainGym.Domain;
 using MediatR;
 using System;
@@ -9,22 +10,24 @@ using System.Threading.Tasks;
 
 namespace BrainGym.Application.Calls.Recommendations.Queries.GetAll
 {
-    public class GetAllRecommendationsQuery : IRequest<IEnumerable<Recommendation>>
+    public class GetAllRecommendationsQuery : IRequest<IQueryable<RecommendationDto>>
     {
     }
 
-    public class GetAllRecommendationsQueryHandler : IRequestHandler<GetAllRecommendationsQuery, IEnumerable<Recommendation>>
+    public class GetAllRecommendationsQueryHandler : IRequestHandler<GetAllRecommendationsQuery, IQueryable<RecommendationDto>>
     {
         private readonly IUnitOfWork _uow;
+        private readonly IMapper _mapper;
 
-        public GetAllRecommendationsQueryHandler(IUnitOfWork uow)
+        public GetAllRecommendationsQueryHandler(IUnitOfWork uow, IMapper mapper)
         {
             this._uow = uow;
+            this._mapper = mapper;
         }
 
-        public async Task<IEnumerable<Recommendation>> Handle(GetAllRecommendationsQuery request, CancellationToken cancellationToken)
+        public async Task<IQueryable<RecommendationDto>> Handle(GetAllRecommendationsQuery request, CancellationToken cancellationToken)
         {
-            return _uow.Recommendations.GetAll().ToList();
+            return _uow.Recommendations.ProjectTo<RecommendationDto>(_mapper.ConfigurationProvider);
         }
     }
 }

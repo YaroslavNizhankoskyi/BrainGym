@@ -1,4 +1,5 @@
-﻿using BrainGym.Application.Common.Interfaces;
+﻿using AutoMapper;
+using BrainGym.Application.Common.Interfaces;
 using BrainGym.Domain;
 using MediatR;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BrainGym.Application.Calls.Scores.Queries.Get
 {
-    public class GetScoreQuery : IRequest<Score>
+    public class GetScoreQuery : IRequest<ScoreDto>
     {
         public GetScoreQuery(Guid id)
         {
@@ -19,20 +20,24 @@ namespace BrainGym.Application.Calls.Scores.Queries.Get
 
     }
 
-    public class GetScoreQueryHandler : IRequestHandler<GetScoreQuery, Score>
+    public class GetScoreQueryHandler : IRequestHandler<GetScoreQuery, ScoreDto>
     {
         private readonly IUnitOfWork _uow;
+        private readonly IMapper _mapper;
 
-        public GetScoreQueryHandler(IUnitOfWork uow)
+        public GetScoreQueryHandler(IUnitOfWork uow, IMapper mapper)
         {
             this._uow = uow;
+            this._mapper = mapper;
         }
 
-        public Task<Score> Handle(GetScoreQuery request, CancellationToken cancellationToken)
+        public async Task<ScoreDto> Handle(GetScoreQuery request, CancellationToken cancellationToken)
         {
-            var score = _uow.Scores.GetById(request.Id);
+            var score = await _uow.Scores.GetById(request.Id);
 
-            return score;
+            var scoreDto = _mapper.Map<ScoreDto>(score); 
+
+            return scoreDto;
         }
     }
 }

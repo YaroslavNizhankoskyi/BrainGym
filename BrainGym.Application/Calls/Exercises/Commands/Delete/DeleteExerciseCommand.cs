@@ -1,4 +1,5 @@
-﻿using BrainGym.Application.Common.Exceptions;
+﻿using BrainGym.Application.Common.Constants;
+using BrainGym.Application.Common.Exceptions;
 using BrainGym.Application.Common.Interfaces;
 using MediatR;
 using System;
@@ -31,10 +32,7 @@ namespace BrainGym.Application.Calls.Exercises.Commands.Delete
         {
             var exercise = await _uow.Exercises.GetById(request.Id);
 
-            if(exercise == null)
-            {
-                throw new NotFoundException();
-            }
+            if(exercise == null) throw new NotFoundException(ExercisesConstants.ExerciseNotFound);
 
             _uow.Exercises.Remove(exercise);
 
