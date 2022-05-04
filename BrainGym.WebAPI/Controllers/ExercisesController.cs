@@ -20,7 +20,7 @@ namespace BrainGym.WebAPI.Controllers
             this._mediator = mediator;
         }
 
-        [LightQuery(forcePagination: true, defaultPageSize: 3, defaultSort: "ExerciseType asc")]
+        [LightQuery(forcePagination: true, defaultPageSize: 5, defaultSort: "ExerciseType asc")]
         [ProducesResponseType(typeof(IEnumerable<Exercise>), 200)]
         [HttpGet]
         public async Task<IActionResult> GetAll()

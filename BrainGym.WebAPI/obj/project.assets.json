@@ -7682,6 +7682,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "AutoMapper >= 11.0.1",
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "BrainGym.Infrastructure >= 1.0.0",
       "LightQuery >= 2.1.0",
       "MediatR >= 10.0.1",
@@ -7740,6 +7741,10 @@
           "AutoMapper": {
             "target": "Package",
             "version": "[11.0.1, )"
+          },
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[11.0.0, )"
           },
           "LightQuery": {
             "target": "Package",
