@@ -3,6 +3,8 @@ using BrainGym.Application.Calls.ExpectedResults.Commands.Post;
 using BrainGym.Application.Calls.ExpectedResults.Commands.Put;
 using BrainGym.Application.Calls.ExpectedResults.Queries.Get;
 using BrainGym.Application.Calls.ExpectedResults.Queries.GetAll;
+using BrainGym.Domain;
+using LightQuery;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +21,8 @@ namespace BrainGym.WebAPI.Controllers
             this._mediator = mediatr;
         }
 
+        [LightQuery]
+        [ProducesResponseType(typeof(IEnumerable<ExpectedResult>), 200)]
         [HttpGet]
         public async Task<IActionResult> Get(GetAllExpectedResultsQuery query)
         {
