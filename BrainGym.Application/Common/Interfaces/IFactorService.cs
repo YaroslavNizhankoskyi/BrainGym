@@ -9,6 +9,6 @@ namespace BrainGym.Application.Common.Interfaces
 {
     public interface IFactorService
     {
-        FactorType GetFactorWithCorrelation(List<Score> scores); 
+        Factor GetFactorWithCorrelation(List<Score> scores); 
     }
 }

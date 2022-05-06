@@ -55,12 +55,7 @@ namespace BrainGym.Application.Calls.User.Queries.FactorRecommendation
                 return FactorRecommendationResponse.Error(UsersConstants.NotEnoughScores);
             }
 
-            var factorType = _factorService.GetFactorWithCorrelation(userScores);
-
-            var factor = _uow.Factors
-                .Get(x => x.ExerciseId == exercise.Id
-                && x.FactorType == factorType)
-                .FirstOrDefault();
+            var factor = _factorService.GetFactorWithCorrelation(userScores);
 
             if (factor == null) throw new NotFoundException(FactorsConstants.FactorNotFound);
 
@@ -68,7 +63,7 @@ namespace BrainGym.Application.Calls.User.Queries.FactorRecommendation
 
             if (recommendation == null) throw new NotFoundException(RecommendationConstants.RecommednationNotFound);
 
-            return new FactorRecommendationResponse(factorType, recommendation.Text);
+            return new FactorRecommendationResponse(factor.FactorType, recommendation.Text);
         }
     }    
 }

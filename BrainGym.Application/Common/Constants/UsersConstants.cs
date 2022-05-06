@@ -10,5 +10,6 @@ namespace BrainGym.Application.Common.Constants
     {
         public const string UserNotFound = "User not found";
         public const string NotEnoughScores = "Not enough tries to pass exercise to give recommendation";
+        public const string NoExpectedResults = "No expected results";
     }
 }

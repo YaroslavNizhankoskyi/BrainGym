@@ -8,6 +8,7 @@ namespace BrainGym.Application.Common.Constants
 {
     public class ScoreConstants
     {
+        public const string ScoreNotFound = "Score not found";
         public const string UserNotFound = "User not found";
         public const string ExerciseNotFound = "Exercise not found";
 

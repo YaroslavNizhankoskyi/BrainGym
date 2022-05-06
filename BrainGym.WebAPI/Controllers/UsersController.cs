@@ -1,4 +1,5 @@
 ﻿using BrainGym.Application.Calls.User.Queries.FactorRecommendation;
+using BrainGym.Application.Calls.User.Queries.ScoreRecommendation;
 using BrainGym.WebAPI.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -28,6 +29,13 @@ namespace BrainGym.WebAPI.Controllers
 
             var result = new FactorRecommendationDto(evaluation.Recommendation, evaluation.FactorType);
 
+            return Ok(result);
+        }
+
+        [HttpGet("score/{id}")]
+        public async Task<IActionResult> GetScoreRecomemndation(Guid id)
+        {
+            var result = await _mediator.Send(new ScoreRecommendationRequest(id));
             return Ok(result);
         }
     }

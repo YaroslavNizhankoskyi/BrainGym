@@ -71,6 +71,10 @@
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
               "version": "[6.0.4, )"
+            },
+            "morelinq": {
+              "target": "Package",
+              "version": "[3.3.2, )"
             }
           },
           "imports": [

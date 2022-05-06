@@ -11,11 +11,40 @@ namespace BrainGym.Application.Common.Services
 {
     public class FactorService : IFactorService
     {
+        private readonly IUnitOfWork _uow;
 
-        public FactorType GetFactorWithCorrelation(List<Score> scores)
+        private Dictionary<double, FactorType> FactorCorrelationDict { get; set; }
+
+        public FactorService(IUnitOfWork uow)
+        {
+            this._uow = uow;
+        }
+
+        private FactorType GetCorrelatedFactorType()
+        {
+            FactorType result;
+
+            var biggestCorrelation = FactorCorrelationDict.Keys.Max();
+
+            if (FactorCorrelationDict.TryGetValue(biggestCorrelation, out result))
+            {
+                return result;
+            }
+
+            throw new ApplicationException();
+        }
+
+        private void CalcualateCorrelation(IEnumerable<double> scores, IEnumerable<double> rates, FactorType factorType)
+        {
+            var correlation = Correlation.Pearson(scores, rates);
+
+            FactorCorrelationDict.Add(correlation, factorType);
+        }
+
+        public Factor GetFactorWithCorrelation(List<Score> scores)
         { 
-            var gameScores = scores.Select(x => x.GameScore);
-
+            var gameScores = scores
+                .Select(x => x.GameScore);
             var healthRates = scores
                 .Select(x => (double)x.HealthRate);
             var meantalRates = scores
@@ -23,26 +52,18 @@ namespace BrainGym.Application.Common.Services
             var sleepRates = scores
                 .Select(x => (double)x.SleepRate);
 
-            var healthCorrelation = Correlation.Pearson(gameScores, healthRates);
-            var mentalCorrelation = Correlation.Pearson(gameScores, meantalRates);
-            var sleepCorrelation = Correlation.Pearson(gameScores, sleepRates);
+            CalcualateCorrelation(gameScores, healthRates, FactorType.Health);
+            CalcualateCorrelation(gameScores, sleepRates, FactorType.Sleep);
+            CalcualateCorrelation(gameScores, meantalRates, FactorType.Mental);
 
-            var factorDictionary = new Dictionary<double, FactorType>();
+            var correaltedFactorType = GetCorrelatedFactorType();
 
-            factorDictionary.Add(healthCorrelation, FactorType.Health);
-            factorDictionary.Add(mentalCorrelation, FactorType.Mental);
-            factorDictionary.Add(sleepCorrelation, FactorType.Sleep);
+            var factor = _uow.Factors
+                .Get(x => x.ExerciseId == scores.First().ExerciseId
+                    && x.FactorType == correaltedFactorType)
+                .FirstOrDefault();
 
-            FactorType result;
-
-            var biggestCorrelation = factorDictionary.Keys.Max();
-
-            if(factorDictionary.TryGetValue(biggestCorrelation, out result))
-            {
-                return result;
-            }
-
-            throw new ApplicationException();
+            return factor;
         }
     }
 }
