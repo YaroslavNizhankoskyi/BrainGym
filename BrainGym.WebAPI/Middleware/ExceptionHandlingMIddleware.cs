@@ -1,4 +1,4 @@
-﻿using BrainGym.Application.Common.Exceptions;
+﻿using BrainGym.Infrastructure.Common.Exceptions;
 using FluentValidation;
 using FluentValidation.Results;
 using System.Text.Json;

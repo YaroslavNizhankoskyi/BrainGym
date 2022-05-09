@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using BrainGym.Application.Common.Interfaces;
+using BrainGym.Infrastructure.Common.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -25,8 +26,23 @@ namespace BrainGym.Infrastructure.Data.Models
 
         public async Task<TEntity> GetById(Guid id)
         {
+            var entity = await context.Set<TEntity>().FindAsync(id);
+
+            if(entity == null)
+            {
+                var typeName = typeof(TEntity).Name;
+
+                throw new NotFoundException($"{typeName} not found");
+            }
+
+            return entity;
+        }
+
+        public async Task<TEntity> GetByIdOrDefault(Guid id)
+        {
             return await context.Set<TEntity>().FindAsync(id);
         }
+
 
         public IQueryable<TEntity> Get(
             Expression<Func<TEntity, bool>> filter = null,

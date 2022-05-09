@@ -25,4 +25,8 @@
     <ProjectReference Include="..\BrainGym.Domain\BrainGym.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\Exceptions\" />
+  </ItemGroup>
+
 </Project>
