@@ -1,5 +1,4 @@
 ﻿using BrainGym.Application.Common.Constants;
-using BrainGym.Application.Common.Exceptions;
 using BrainGym.Application.Common.Interfaces;
 using BrainGym.Domain;
 using MediatR;
@@ -32,8 +31,6 @@ namespace BrainGym.Application.Calls.User.Queries.ScoreRecommendation
         {
             var score = await _uow.Scores.GetById(request.ScoreId);
 
-            if (score == null) throw new NotFoundException(ScoreConstants.ScoreNotFound);
-
             var expectedResults = _uow.ExpectedResults
                 .Get(x => x.ExerciseId == score.ExerciseId)
                 .ToList();
@@ -43,8 +40,6 @@ namespace BrainGym.Application.Calls.User.Queries.ScoreRecommendation
             var closestExpectedResult = CalculateClosestExpectedResult(score.GameScore, expectedResults);
 
             var recommendation = await _uow.Recommendations.GetById(closestExpectedResult.RecommendationId);
-
-            if (recommendation == null) throw new NotFoundException(RecommendationConstants.RecommednationNotFound);
 
             return recommendation.Text;
 

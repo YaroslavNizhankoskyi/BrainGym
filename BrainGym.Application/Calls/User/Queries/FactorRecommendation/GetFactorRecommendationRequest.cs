@@ -42,11 +42,7 @@ namespace BrainGym.Application.Calls.User.Queries.FactorRecommendation
             var user = _uow.Users.Get(x => x.UserId == _currentUser.UserId)
                 .FirstOrDefault();
 
-            if (user == null) throw new NotFoundException(UsersConstants.UserNotFound);
-
             var exercise = await _uow.Exercises.GetById(request.ExerciseId);
-
-            if (exercise == null) throw new NotFoundException(ExercisesConstants.ExerciseNotFound);
 
             var userScores = _uow.Scores.Get(x => x.ExerciseId == exercise.Id).ToList();
 
@@ -57,11 +53,7 @@ namespace BrainGym.Application.Calls.User.Queries.FactorRecommendation
 
             var factor = _factorService.GetFactorWithCorrelation(userScores);
 
-            if (factor == null) throw new NotFoundException(FactorsConstants.FactorNotFound);
-
             var recommendation = await _uow.Recommendations.GetById(factor.RecommendationId);
-
-            if (recommendation == null) throw new NotFoundException(RecommendationConstants.RecommednationNotFound);
 
             return new FactorRecommendationResponse(factor.FactorType, recommendation.Text);
         }
