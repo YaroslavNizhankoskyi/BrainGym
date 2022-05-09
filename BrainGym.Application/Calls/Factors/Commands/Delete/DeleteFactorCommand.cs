@@ -1,5 +1,4 @@
 ﻿using BrainGym.Application.Common.Constants;
-using BrainGym.Application.Common.Exceptions;
 using BrainGym.Application.Common.Interfaces;
 using MediatR;
 using System;
@@ -27,8 +26,6 @@ namespace BrainGym.Application.Calls.Factors.Commands.Delete
         public async Task<bool> Handle(DeleteFactorCommand request, CancellationToken cancellationToken)
         {
             var factor = await _uow.Factors.GetById(request.Id);
-
-            if (factor == null) throw new NotFoundException(FactorsConstants.FactorNotFound);
 
             _uow.Factors.Remove(factor);
 

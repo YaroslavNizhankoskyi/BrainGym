@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BrainGym.Application.Common.Exceptions
+namespace BrainGym.Infrastructure.Common.Exceptions
 {
-    public  class NotFoundException : Exception
+    public class NotFoundException : Exception
     {
         public NotFoundException(string message) : base(message)
         {

@@ -1,5 +1,4 @@
 ﻿using BrainGym.Application.Common.Constants;
-using BrainGym.Application.Common.Exceptions;
 using BrainGym.Application.Common.Interfaces;
 using BrainGym.Domain;
 using MediatR;
@@ -35,10 +34,6 @@ namespace BrainGym.Application.Calls.Factors.Commands.Post
             var recommendation = await _uow.Recommendations.GetById(request.RecommendationId);
 
             var exercise = await _uow.Exercises.GetById(request.ExerciseId);
-
-            if (recommendation == null) throw new NotFoundException(FactorsConstants.RecommendationNotFound);
-
-            if (exercise == null) throw new NotFoundException(FactorsConstants.ExerciseNotFound);
 
             var factor = new Factor
             {

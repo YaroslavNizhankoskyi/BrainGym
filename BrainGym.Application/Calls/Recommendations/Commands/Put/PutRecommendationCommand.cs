@@ -1,5 +1,4 @@
 ﻿using BrainGym.Application.Common.Constants;
-using BrainGym.Application.Common.Exceptions;
 using BrainGym.Application.Common.Interfaces;
 using MediatR;
 using System;
@@ -29,8 +28,6 @@ namespace BrainGym.Application.Calls.Recommendations.Commands.Put
         public async Task<bool> Handle(PutRecommendationCommand request, CancellationToken cancellationToken)
         {
             var recommendation = await _uow.Recommendations.GetById(request.Id);
-
-            if (recommendation == null) throw new NotFoundException(RecommendationConstants.RecommednationNotFound);
 
             recommendation.Text = request.Text;
 

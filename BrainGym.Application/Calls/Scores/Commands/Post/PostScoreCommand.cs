@@ -1,5 +1,4 @@
 ﻿using BrainGym.Application.Common.Constants;
-using BrainGym.Application.Common.Exceptions;
 using BrainGym.Application.Common.Interfaces;
 using BrainGym.Domain;
 using MediatR;
@@ -43,12 +42,7 @@ namespace BrainGym.Application.Calls.Scores.Commands.Post
 
             if(user == null)
             {
-                throw new NotFoundException(ScoreConstants.UserNotFound);
-            }
-
-            if(exercise == null)
-            {
-                throw new NotFoundException(ScoreConstants.ExerciseNotFound);
+                throw new ApplicationException(ScoreConstants.UserNotFound);
             }
 
             var score = new Score

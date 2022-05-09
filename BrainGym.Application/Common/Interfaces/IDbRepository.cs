@@ -11,6 +11,8 @@ namespace BrainGym.Application.Common.Interfaces
     public interface IDbRepository<TEntity> where TEntity : class
     {
         Task<TEntity> GetById(Guid id);
+        Task<TEntity> GetByIdOrDefault(Guid id);
+
         IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> filter = null,
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null);
 

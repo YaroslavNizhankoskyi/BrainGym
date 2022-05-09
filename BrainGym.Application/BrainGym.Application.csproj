@@ -31,4 +31,8 @@
     <Folder Include="Calls\User\Commands\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\Exceptions\" />
+  </ItemGroup>
+
 </Project>
