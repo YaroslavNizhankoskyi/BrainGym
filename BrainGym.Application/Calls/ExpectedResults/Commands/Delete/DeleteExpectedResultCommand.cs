@@ -1,5 +1,4 @@
 ﻿using BrainGym.Application.Common.Constants;
-using BrainGym.Application.Common.Exceptions;
 using BrainGym.Application.Common.Interfaces;
 using MediatR;
 using System;
@@ -27,8 +26,6 @@ namespace BrainGym.Application.Calls.ExpectedResults.Commands.Delete
         public async Task<bool> Handle(DeleteExpectedResultCommand request, CancellationToken cancellationToken)
         {
             var expectedResult = await _uow.ExpectedResults.GetById(request.Id);
-
-            if (expectedResult == null) throw new NotFoundException(ExpectedResultsConstants.ExpectedResultNotFound);
 
             _uow.ExpectedResults.Remove(expectedResult);
 

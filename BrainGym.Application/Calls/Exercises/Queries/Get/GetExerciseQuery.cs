@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using BrainGym.Application.Common.Constants;
-using BrainGym.Application.Common.Exceptions;
 using BrainGym.Application.Common.Interfaces;
 using MediatR;
 using System;
@@ -34,8 +33,6 @@ namespace BrainGym.Application.Calls.Exercises.Queries.Get
         public async Task<ExerciseDto> Handle(GetExerciseQuery request, CancellationToken cancellationToken)
         {
             var exercise = await _uow.Exercises.GetById(request.Id);
-
-            if (exercise == null) throw new NotFoundException(ExercisesConstants.ExerciseNotFound);
 
             return _mapper.Map<ExerciseDto>(exercise);
         }

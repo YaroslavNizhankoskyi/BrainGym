@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using BrainGym.Application.Common.Constants;
-using BrainGym.Application.Common.Exceptions;
 using BrainGym.Application.Common.Interfaces;
 using BrainGym.Domain;
 using MediatR;
@@ -34,8 +33,6 @@ namespace BrainGym.Application.Calls.Factors.Queries.Get
         public async Task<FactorDto> Handle(GetFactorQuery request, CancellationToken cancellationToken)
         {
             var factor = await _uow.Factors.GetById(request.Id);
-
-            if (factor == null) throw new NotFoundException(FactorsConstants.FactorNotFound);
 
             var factorDto = _mapper.Map<FactorDto>(factor);
             
