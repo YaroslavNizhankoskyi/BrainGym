@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BrainGym.Application.Calls.Exercises.Queries.Get;
 using BrainGym.Application.Common.Interfaces;
+using BrainGym.Domain;
 using MediatR;
 using System;
 using System.Collections.Generic;

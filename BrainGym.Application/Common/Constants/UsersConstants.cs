@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace BrainGym.Application.Common.Constants
 {
-    public class ScoreConstants
+    public class UsersConstants
     {
-        public const string ScoreNotFound = "Score not found";
         public const string UserNotFound = "User not found";
-        public const string ExerciseNotFound = "Exercise not found";
-
+        public const string NotEnoughScores = "Not enough tries to pass exercise to give recommendation";
+        public const string NoExpectedResults = "No expected results";
     }
 }

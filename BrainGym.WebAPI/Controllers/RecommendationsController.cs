@@ -2,6 +2,8 @@
 using BrainGym.Application.Calls.Recommendations.Commands.Post;
 using BrainGym.Application.Calls.Recommendations.Commands.Put;
 using BrainGym.Application.Calls.Recommendations.Queries.GetAll;
+using BrainGym.Domain;
+using LightQuery;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +20,8 @@ namespace BrainGym.WebAPI.Controllers
             this._mediator = mediatr;
         }
 
+        [LightQuery]
+        [ProducesResponseType(typeof(IEnumerable<Recommendation>), 200)]
         [HttpGet]
         public async Task<IActionResult> Get(GetAllRecommendationsQuery query)
         {

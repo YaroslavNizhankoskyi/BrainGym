@@ -1,8 +1,10 @@
 using BrainGym.Application;
+using BrainGym.Application.Common.Interfaces;
 using BrainGym.Infrastructure;
 using BrainGym.WebAPI.Helpers;
 using BrainGym.WebAPI.Helpers.Seed;
 using BrainGym.WebAPI.Middleware;
+using BrainGym.WebAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddTransient<ICurrentUserService, CurrentUserService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

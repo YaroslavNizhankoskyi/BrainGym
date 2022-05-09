@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BrainGym.Application.Calls.Exercises.Queries.Get;
+using BrainGym.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace BrainGym.Application.Common.Mappers
     {
         public ExerciseProfile()
         {
-            CreateMap<ExerciseProfile, ExerciseDto>();
+            CreateMap<Exercise, ExerciseDto>();
         }
     }
 }

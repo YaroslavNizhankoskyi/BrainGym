@@ -1,6 +1,8 @@
 ﻿using BrainGym.Application.Calls.Scores.Commands.Post;
 using BrainGym.Application.Calls.Scores.Queries.Get;
 using BrainGym.Application.Calls.Scores.Queries.GetAll;
+using BrainGym.Domain;
+using LightQuery;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,6 +19,8 @@ namespace BrainGym.WebAPI.Controllers
             this._mediator = mediator;
         }
 
+        [LightQuery]
+        [ProducesResponseType(typeof(IEnumerable<Score>), 200)]
         [HttpGet]
         public async Task<IActionResult> Get(GetAllScoresQuery query)
         {

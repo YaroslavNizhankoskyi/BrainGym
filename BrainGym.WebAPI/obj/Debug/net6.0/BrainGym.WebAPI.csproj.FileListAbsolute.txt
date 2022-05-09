@@ -64,7 +64,6 @@ C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\obj\Debug\net6.0\BrainGym.W
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\obj\Debug\net6.0\BrainGym.WebAPI.AssemblyInfoInputs.cache
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\obj\Debug\net6.0\BrainGym.WebAPI.AssemblyInfo.cs
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\obj\Debug\net6.0\BrainGym.WebAPI.csproj.CoreCompileInputs.cache
-C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\obj\Debug\net6.0\BrainGym.WebAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\obj\Debug\net6.0\BrainGym.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\obj\Debug\net6.0\staticwebassets.development.json
@@ -80,4 +79,10 @@ C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\BrainGym.A
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\BrainGym.Application.pdb
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\LightQuery.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\LightQuery.Client.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\LightQuery.Shared.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\System.Reactive.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\System.Reactive.xml
 C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\dasap\source\repos\BrainGym\BrainGym.WebAPI\obj\Debug\net6.0\BrainGym.WebAPI.MvcApplicationPartsAssemblyInfo.cs
