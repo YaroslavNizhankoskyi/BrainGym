@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrainGym.WebAPI", "BrainGym
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrainGym.Infrastructure", "BrainGym.Infrastructure\BrainGym.Infrastructure.csproj", "{79D7BAC0-2A7D-47DE-8D75-5BA438A57BD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrainGym.Application", "BrainGym.Application\BrainGym.Application.csproj", "{09745B57-03FC-4632-BC21-936556425561}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrainGym.Application", "BrainGym.Application\BrainGym.Application.csproj", "{09745B57-03FC-4632-BC21-936556425561}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrainGym.Domain", "BrainGym.Domain\BrainGym.Domain.csproj", "{EE2C04C4-925B-4DDC-9773-41EF48F5CE64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrainGym.Domain", "BrainGym.Domain\BrainGym.Domain.csproj", "{EE2C04C4-925B-4DDC-9773-41EF48F5CE64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
